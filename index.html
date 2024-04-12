@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000080; /* Navy blue background */
+            font-family: Arial, sans-serif;
+        }
+        #registrationForm {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            gap: 10px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #registerButton {
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #registerButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form id="registrationForm">
+        <h2>Register</h2>
+        <input id="usernameInput" type="text" placeholder="Username">
+        <input id="emailInput" type="email" placeholder="Email">
+        <input id="passwordInput" type="password" placeholder="Password">
+        <input id="confirmPasswordInput" type="password" placeholder="Confirm Password">
+        <button id="registerButton">Register</button>
+    </form>
+
+    <script>
+        const registrationForm = document.getElementById('registrationForm');
+        const usernameInput = document.getElementById('usernameInput');
+        const emailInput = document.getElementById('emailInput');
+        const passwordInput = document.getElementById('passwordInput');
+        const confirmPasswordInput = document.getElementById('confirmPasswordInput');
+
+        registrationForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                alert('Passwords do not match!');
+                return;
+            }
+            localStorage.setItem('username', usernameInput.value);
+            window.location.href = 'chat.html';
+        });
+    </script>
+</body>
+</html>
+
